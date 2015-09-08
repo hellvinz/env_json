@@ -1,5 +1,7 @@
 # EnvJson
 
+[![Build Status](https://travis-ci.org/hellvinz/env_json.png)](https://travis-ci.org/hellvinz/env_json)
+
 Load ENV variables from a JSON file. (somehow similar to [dotenv](https://github.com/bkeepers/dotenv))
 
 Intended to be used with [ejson](https://github.com/Shopify/ejson)
@@ -34,6 +36,11 @@ If you're using Rails create a config/env.json like this template
 ```
 
 But really have a look at [ejson](https://github.com/Shopify/ejson) and [ejson-capistrano](https://github.com/Shopify/capistrano-ejson)
+
+About the JSON format:
+
+* keys prefixed with _ will be ignored
+* keys development, test, staging, production will be ignored if they don't match with current environment
 
 ## Development
 
