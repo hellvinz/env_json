@@ -64,4 +64,17 @@ class EnvJsonTest < MiniTest::Spec
       conf.must_equal({ "bla" => "notbla" })
     end
   end
+
+  describe 'env' do
+    #cleanup
+    after do
+      ENV['bla'] = nil
+    end
+
+    it 'should return the build environment' do
+      json = '{"bla":"bla", "test": { "bla" : "notbla" } }'
+      EnvJson.load_env_from_source_with_overrides(json, 'test')
+      EnvJson.env.must_equal({ "bla" => "notbla" })
+    end
+  end
 end

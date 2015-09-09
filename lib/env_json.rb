@@ -12,9 +12,15 @@ module EnvJson
   # @return [Hash] the loaded environment variables
   def load_env_from_source_with_overrides(json, environment_name=nil)
     json = JSON.load(json)
-    generate_configuration(json, environment_name).tap do |configuration|
+    @env = generate_configuration(json, environment_name).tap do |configuration|
       apply_env(configuration)
     end
+  end
+
+  # return the consolidated env built by {EnvJson#load_env_from_source_with_overrides}
+  # @return [Hash] the environment variables loaded from JSON
+  def env
+    @env or fail 'call load_env_from_source_with_overrides first'
   end
 
   # @!visibility private

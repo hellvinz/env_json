@@ -42,6 +42,14 @@ About the JSON format:
 * keys prefixed with _ will be ignored
 * keys development, test, staging, production will be ignored if they don't match with current environment
 
+### ElasticBeanstalk
+
+export env variables defined in config/env.json to Amazon ElasticBeanstalk environment
+
+```
+bundle exec rake env_json:eb
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
