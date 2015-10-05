@@ -8,7 +8,9 @@ namespace :env_json do
   end
 
   desc 'load env into ElasticBeanstalk'
-  task eb: :environment do
+  task :eb do
+    EnvJson.load_env_from_source_with_overrides(Rails.root.join('config/env.json'), ENV.fetch('RAILS_ENV'))
+
     eb_formated_env = EnvJson.env.map{|key,value| "#{Shellwords.escape key}=#{Shellwords.escape value}" }.join(' ')
     begin
       PTY.spawn("eb setenv -v #{eb_formated_env}") do |stdin, stdout, pid|

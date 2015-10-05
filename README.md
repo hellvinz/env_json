@@ -47,8 +47,10 @@ About the JSON format:
 export env variables defined in config/env.json to Amazon ElasticBeanstalk environment
 
 ```
-bundle exec rake env_json:eb
+RAILS_ENV=production bundle exec rake env_json:eb
 ```
+
+You should pass RAILS_ENV. EnvJson can't figure out which environment you're targeting alone.
 
 ## Development
 
