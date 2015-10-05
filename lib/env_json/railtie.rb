@@ -4,8 +4,11 @@ module EnvJson
     config.before_configuration { load_env }
 
     # railtie hook to load env with Rails.env as environment name and config/env.json files as source
-    def load_env
-      EnvJson.load_env_from_source_with_overrides(Rails.root.join('config/env.json'), Rails.env)
+    def load_env()
+      env_json_file = Rails.root.join('config/env.json')
+      environment_name = Rails.env
+      puts "EnvJson: file #{env_json_file} does not exists" && return unless File.exists? env_json_file
+      EnvJson.load_env_from_source_with_overrides(env_json_file, environment_name)
     end
 
     rake_tasks do
