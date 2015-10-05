@@ -8,6 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = EnvJson::VERSION
   spec.authors       = ["Vincent Hellot"]
   spec.email         = ["hellvinz@gmail.com"]
+  spec.license       = "MIT"
 
   spec.summary       = %q{Load ENV variables from a JSON file}
   spec.description   = %q{Load ENV variables from a JSON file. Usefull with ejson https://github.com/Shopify/ejson}
