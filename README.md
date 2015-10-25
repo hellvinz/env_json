@@ -52,6 +52,12 @@ RAILS_ENV=production bundle exec rake env_json:eb
 
 You should pass RAILS_ENV. EnvJson can't figure out which environment you're targeting alone.
 
+You can pass ENVIRONMENT_NAME to give AWS ElasticBeanstalk environment name
+
+```
+RAILS_ENV=production ENVIRONMENT_NAME=my-staging-env bundle exec rake env_json:eb
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
