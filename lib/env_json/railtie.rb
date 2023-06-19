@@ -7,7 +7,7 @@ module EnvJson
     def load_env()
       env_json_file = Rails.root.join('config/env.json')
       environment_name = Rails.env
-      puts "EnvJson: file #{env_json_file} does not exists" && return unless File.exists? env_json_file
+      puts "EnvJson: file #{env_json_file} does not exists" && return unless File.exist? env_json_file
       EnvJson.load_env_from_source_with_overrides(env_json_file, environment_name)
     end
 
